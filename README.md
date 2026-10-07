@@ -25,7 +25,10 @@ Este repositório contém os passos para configurar um ambiente ROS 2 Humble rod
   1. Escolha o perfil de telefone **Pixel 6**
   2. Na imagem de sistema, selecione **API 34 "UpsideDownCake"; Android 14.0**
   3. Em **Services**, escolha **"Google APIs"**
-  4. **Finish**
+  4. Em **Show Advanced Settings** e ajuste:
+     RAM: 4096 MB
+     Internal Storage: 20 GB 
+  5. **Finish**
 
 #### Termux + Termux:API
 
@@ -77,7 +80,7 @@ Este repositório contém os passos para configurar um ambiente ROS 2 Humble rod
   source /opt/ros/humble/setup.bash
   ```
   * Durante o `apt install`, pode aparecer a configuração de fuso horário do pacote `tzdata` (é interativa): digite o número da região (ex.: `2` para América) e depois selecione o país e a cidade/fuso (ex.: Brasil, Recife UTC-3).
-  
+
   Confirme que com o `lsb_release -cs` se retorna **"jammy"**.
    * Rode novamente:
     ```bash
