@@ -31,6 +31,7 @@ Este repositório contém os passos para configurar um ambiente ROS 2 Humble rod
 
 * Via terminal do Ubuntu (Fora do Emulador) - Baixe os APKs mais recentes direto do GitHub :
   ```bash
+  sudo apt install curl
   TERMUX_URL=$(curl -s https://api.github.com/repos/termux/termux-app/releases/latest \
     | grep "browser_download_url.*universal.apk" | cut -d '"' -f4)
   wget "$TERMUX_URL" -O termux-app.apk
@@ -41,6 +42,7 @@ Este repositório contém os passos para configurar um ambiente ROS 2 Humble rod
   ```
 * Instale via `adb`:
   ```bash
+  sudo apt install adb
   adb install termux-app.apk
   adb install termux-api.apk
   ```
@@ -55,7 +57,7 @@ Este repositório contém os passos para configurar um ambiente ROS 2 Humble rod
   pkg install proot-distro termux-api -y
 
   proot-distro install ubuntu:22.04
-  proot-distro login ubuntu:22.04
+  proot-distro login ubuntu
   ```
   O prompt deve mudar para `root@localhost:~#`, confirmando que você está dentro do Ubuntu 22.04.
 
@@ -74,12 +76,13 @@ Este repositório contém os passos para configurar um ambiente ROS 2 Humble rod
   apt install ros-humble-ros-base -y
   source /opt/ros/humble/setup.bash
   ```
-  Confirme que `lsb_release -cs` retornou **"jammy"**.
+  * Durante o `apt install`, pode aparecer a configuração de fuso horário do pacote `tzdata` (é interativa): digite o número da região (ex.: `2` para América) e depois selecione o país e a cidade/fuso (ex.: Brasil, Recife UTC-3).
+  
+  Confirme que com o `lsb_release -cs` se retorna **"jammy"**.
    * Rode novamente:
     ```bash
     apt install ros-humble-ros-base -y
     ```
-* Durante o `apt install`, pode aparecer a configuração de fuso horário do pacote `tzdata` (é interativa): digite o número da região (ex.: `2` para América) e depois selecione o país e a cidade/fuso (ex.: Brasil, Recife UTC-3).
 * Instale os nós de demonstração (não incluídos no `ros-base`):
   ```bash
   apt install ros-humble-demo-nodes-cpp -y
